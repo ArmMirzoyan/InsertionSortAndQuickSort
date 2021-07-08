@@ -10,10 +10,13 @@ public class SortingUtil {
                     minIndex = j;
             }
             // Swap found minimum element with first element
+            swap(arr, minIndex, i);
+        }
+    }
+    public static void swap(int[] arr, int minIndex, int i) {
             int temp = arr[minIndex];
             arr[minIndex] = arr[i];
             arr[i] = temp;
-        }
     }
 //*************************************quickSort method******************************************************
     public static void quickSort(int[] source, int leftBorder, int rightBorder) {
@@ -33,9 +36,7 @@ public class SortingUtil {
             if (leftMarker <= rightMarker) {
                 // The left marker will be smaller than the right marker only if we execute swap
                 if (leftMarker < rightMarker) {
-                    int tmp = source[leftMarker];
-                    source[leftMarker] = source[rightMarker];
-                    source[rightMarker] = tmp;
+                    swap(source, leftMarker, rightMarker);
                 }
                 // move markers to get new borders
                 leftMarker++;
